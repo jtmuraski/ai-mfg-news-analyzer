@@ -1,0 +1,17 @@
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SiteRssFeedTest.exe
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SiteRssFeedTest.deps.json
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SiteRssFeedTest.runtimeconfig.json
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SiteRssFeedTest.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SiteRssFeedTest.pdb
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.AssemblyInfoInputs.cache
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.AssemblyInfo.cs
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.csproj.CoreCompileInputs.cache
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\refint\SiteRssFeedTest.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.pdb
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.genruntimeconfig.cache
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\ref\SiteRssFeedTest.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\CodeHollow.FeedReader.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.csproj.AssemblyReference.cache
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssF.1EAC7097.Up2Date
