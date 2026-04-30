@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v10.0": {
       "SiteRssFeedTest/1.0.0": {
         "dependencies": {
-          "CodeHollow.FeedReader": "1.2.6"
+          "CodeHollow.FeedReader": "1.2.6",
+          "NewsAPI": "0.7.0"
         },
         "runtime": {
           "SiteRssFeedTest.dll": {}
@@ -19,6 +20,25 @@
           "lib/netcoreapp2.1/CodeHollow.FeedReader.dll": {
             "assemblyVersion": "1.2.6.0",
             "fileVersion": "1.2.6.0"
+          }
+        }
+      },
+      "NewsAPI/0.7.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "runtime": {
+          "lib/portable45-net45+win8+wpa81/NewsAPI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/10.0.3": {
+        "runtime": {
+          "lib/netstandard1.3/Newtonsoft.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.3.21018"
           }
         }
       }
@@ -36,6 +56,20 @@
       "sha512": "sha512-KpnP1zlX5zk58PUrREYUXC/7gk8ljjS8mkPfmFeuofaJlHJm62990cZdWLiMBuwWhV/HA6NAu9Ck5uM7GOJl0A==",
       "path": "codehollow.feedreader/1.2.6",
       "hashPath": "codehollow.feedreader.1.2.6.nupkg.sha512"
+    },
+    "NewsAPI/0.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZKJCjE/8M41hDHMHvd6f+dejHBaobOuw+Erk9miqcwlixiZ8neRXawR62Fq7rZcBUD/drT26OhvgSa8t6woULg==",
+      "path": "newsapi/0.7.0",
+      "hashPath": "newsapi.0.7.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+      "path": "newtonsoft.json/10.0.3",
+      "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
     }
   }
 }

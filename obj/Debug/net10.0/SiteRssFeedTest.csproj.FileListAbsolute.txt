@@ -15,3 +15,6 @@ C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\CodeHollow.FeedReader.dll
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.csproj.AssemblyReference.cache
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssF.1EAC7097.Up2Date
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\obj\Debug\net10.0\SiteRssFeedTest.sourcelink.json
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\NewsAPI.dll
+C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\Newtonsoft.Json.dll

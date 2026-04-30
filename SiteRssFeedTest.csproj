@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="CodeHollow.FeedReader" Version="1.2.6" />
+    <PackageReference Include="NewsAPI" Version="0.7.0" />
   </ItemGroup>
 
 </Project>

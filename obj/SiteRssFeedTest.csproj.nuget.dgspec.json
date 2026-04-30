@@ -56,6 +56,10 @@
             "CodeHollow.FeedReader": {
               "target": "Package",
               "version": "[1.2.6, )"
+            },
+            "NewsAPI": {
+              "target": "Package",
+              "version": "[0.7.0, )"
             }
           },
           "imports": [
