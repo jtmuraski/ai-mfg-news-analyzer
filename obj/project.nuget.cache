@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0/zIckQM2OM=",
+  "dgSpecHash": "rW4+x1bIhJQ=",
   "success": true,
-  "projectFilePath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+  "projectFilePath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\johnt\\.nuget\\packages\\anglesharp\\1.4.0\\anglesharp.1.4.0.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\codehollow.feedreader\\1.2.6\\codehollow.feedreader.1.2.6.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\newsapi\\0.7.0\\newsapi.0.7.0.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\smartreader\\0.11.0\\smartreader.0.11.0.nupkg.sha512"
@@ -17,9 +17,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'Newtonsoft.Json' 10.0.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
-      "projectPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+      "projectPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+      "filePath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "net10.0"
@@ -29,9 +29,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Package 'NewsAPI 0.7.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0'. This package may not be fully compatible with your project.",
-      "projectPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+      "projectPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+      "filePath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
       "libraryId": "NewsAPI",
       "targetGraphs": [
         "net10.0"

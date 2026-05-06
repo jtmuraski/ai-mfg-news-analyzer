@@ -20,3 +20,25 @@ C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\Newtonsoft.Json.dll
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\AngleSharp.dll
 C:\Projects\GitHubRepos\manufaturing-news-analysis\SiteRssFeedTest\bin\Debug\net10.0\SmartReader.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SiteRssFeedTest.exe
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SiteRssFeedTest.deps.json
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SiteRssFeedTest.runtimeconfig.json
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SiteRssFeedTest.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SiteRssFeedTest.pdb
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\AngleSharp.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\CodeHollow.FeedReader.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\NewsAPI.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\SmartReader.dll
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.csproj.AssemblyReference.cache
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.AssemblyInfoInputs.cache
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.AssemblyInfo.cs
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.csproj.CoreCompileInputs.cache
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.sourcelink.json
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssF.1EAC7097.Up2Date
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.dll
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\refint\SiteRssFeedTest.dll
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.pdb
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.genruntimeconfig.cache
+C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\ref\SiteRssFeedTest.dll

@@ -1,21 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj": {}
+    "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj": {
+    "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+        "projectUniqueName": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
         "projectName": "SiteRssFeedTest",
-        "projectPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
+        "projectPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
         "packagesPath": "C:\\Users\\johnt\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\obj\\",
+        "outputPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\johnt\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Projects\\Libraries": {},
-          "C:\\Projects\\ReleaseBuilds\\FortressLogger": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

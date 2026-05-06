@@ -107,6 +107,13 @@ foreach (KeyValuePair<string, string> link in rssLinks)
     }
 }
 
+// Get all articles that have not yet been analyzed by the AI
+List<Article> articlesToAnalyze = foundArticles.Where(a => !a.AiAnalysisCompleted).ToList();
+foreach(Article article in articlesToAnalyze)
+{
+   
+}
+
 var options = new JsonSerializerOptions { WriteIndented = true };
 File.WriteAllText(jsonPath, JsonSerializer.Serialize(foundArticles, options));
 

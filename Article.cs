@@ -12,9 +12,6 @@ public class Article
 
     // AI Analysis Results
     public bool AiAnalysisCompleted { get; set; } = false;
-    public string? ClaudeSummary { get; set; }
-    public List<string>? Tags { get; set; }
-    public int? Recommendation { get; set; } // 1-5 scale for relevance to me. 0 if Claude cannot anlayze or provide a recommendation.
-    public string? Sentiment { get; set; } // Positive, Neutral, Negative
+    public AiAnalysis? AiAnalysis { get; set; }
 
 }
