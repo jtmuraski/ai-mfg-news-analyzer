@@ -2,39 +2,35 @@
 using NewsAPI;
 using NewsAPI.Models;
 using NewsAPI.Constants;
+using SmartReader;
+using System.Text.Json;
+using System.IO;
+using System.Text.Json.Serialization;
 
-string newsApiKey = "ce88b43e298d430cbd7bda272abbc07a";
+// string newsApiKey = "ce88b43e298d430cbd7bda272abbc07a";
 
-// Test the NewsApi API
-var newsApiClient = new NewsApiClient(newsApiKey);
-var articles =  await newsApiClient.GetEverythingAsync(new EverythingRequest
-{
-    Q = "Manufacturing Technology || Industry 4.0 || Smart Manufacturing",
-    SortBy = SortBys.Popularity,
-    Language = Languages.EN,
-    
-    From = new DateTime(2026,04,25)
-});
-
-Console.WriteLine($"Total Results: {articles.TotalResults}");
-foreach (var article in articles.Articles)
-{
-    Console.WriteLine($"Title: {article.Title}");
-    Console.WriteLine($"Description: {article.Description}");
-    Console.WriteLine($"URL: {article.Url}");
-    Console.WriteLine($"Published At: {article.PublishedAt}");
-    Console.WriteLine();
-}
-
-/*
 // The list of RSS feed links to read
 List<string> rssLinks = new List<string>()
 {
-    //"https://www.industryweek.com/rss"
+    //"https://www.industryweek.com/rss"              // XML parsing error
     "https://www.plantengineering.com/feed/"        // This one works just fine
+    //"https://www.manufacturing.net/feed"              
+    //"https://manufacturing-today.com/feed/"           
+    //"https://www.manufacturingdive.com/feeds/news/"  
+    //"https://www.assemblymag.com/rss/17"              
 };
 
+// TODO: Read the JSON file of the currently found articles
+List<Article>? existingArticles = new List<Article();
+string jsonPath = "found_articles.json";
+using(FileStream fs = File.Open(jsonPath, FileMode.OpenOrCreate))
+{
+    existingArticles = await JsonSerializer.DeserializeAsync<List<Article>>(fs);
+}
+
 // Loop through each RSS feed link and read the feed using the CodeHollow.FeedReader library
+List<Article> foundArticles = new List<Article>();
+
 foreach (string link in rssLinks)
 {
     var feed = await CodeHollow.FeedReader.FeedReader.ReadAsync(link);
@@ -47,13 +43,38 @@ foreach (string link in rssLinks)
 
     foreach (var item in feed.Items)
     {
-        Console.WriteLine($"Item Title- {item.Title}");
-        Console.WriteLine($"Item Link: {item.Link}");
-        Console.WriteLine($"Item Publish Date: {item.PublishingDate}");
-        Console.WriteLine($"Item Description: {item.Description}");
+        Article article = new Article
+        {
+            Title = item.Title,
+            Description = item.Description,
+            Url = item.Link,
+            PublishDate = item.PublishingDate,
+            Author = item.Author,
+            PulledDate = DateTime.Now,
+            Publisher = link
+        };
+
+        // TODO: Check if the article already exists in the JSON file of found articles. If it does, skip it. If it doesn't, add it to the list of found articles and save the updated list back to the JSON file.
+
+        bool articleExists = existingArticles.Any(a => a.Url == article.Url);
+        if (!articleExists)
+        {
+            SmartReader.Reader reader = new SmartReader.Reader(item.Link);
+            SmartReader.Article readArticle = reader.GetArticle();
+
+            if(readArticle.IsReadable)
+            {
+                article.RawText = readArticle.TextContent;
+            }
+
+            foundArticles.Add(article);
+        }
     }
+
+    // Add the new articles to the JSON file
+    var options = new JsonSerializerOptions { WriteIndented = true };
+    List<Article> existingArticles = new List<Article>();
 }
-*/
 
 Console.WriteLine("Finished reading RSS feeds.");
 Console.ReadLine();

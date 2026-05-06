@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf28bbadf43be9918160ca76e7eaa400f310d438")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+059f494d72b92033167f992f25cd2c4efc4bdfef")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

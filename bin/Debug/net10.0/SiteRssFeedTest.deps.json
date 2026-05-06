@@ -9,10 +9,19 @@
       "SiteRssFeedTest/1.0.0": {
         "dependencies": {
           "CodeHollow.FeedReader": "1.2.6",
-          "NewsAPI": "0.7.0"
+          "NewsAPI": "0.7.0",
+          "SmartReader": "0.11.0"
         },
         "runtime": {
           "SiteRssFeedTest.dll": {}
+        }
+      },
+      "AngleSharp/1.4.0": {
+        "runtime": {
+          "lib/net10.0/AngleSharp.dll": {
+            "assemblyVersion": "1.4.0.0",
+            "fileVersion": "1.4.0.0"
+          }
         }
       },
       "CodeHollow.FeedReader/1.2.6": {
@@ -41,6 +50,17 @@
             "fileVersion": "10.0.3.21018"
           }
         }
+      },
+      "SmartReader/0.11.0": {
+        "dependencies": {
+          "AngleSharp": "1.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/SmartReader.dll": {
+            "assemblyVersion": "0.11.0.0",
+            "fileVersion": "0.11.0.0"
+          }
+        }
       }
     }
   },
@@ -49,6 +69,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AngleSharp/1.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6ph8mpaQx0KL0COYRt0kI8MB9gSp1PtKijKMhJU//+aVFgKAJLKDesG/+26JSaVCOrHNgPf12wpfoyRcMYOeXg==",
+      "path": "anglesharp/1.4.0",
+      "hashPath": "anglesharp.1.4.0.nupkg.sha512"
     },
     "CodeHollow.FeedReader/1.2.6": {
       "type": "package",
@@ -70,6 +97,13 @@
       "sha512": "sha512-hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
+    },
+    "SmartReader/0.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DSn2HErPhhaf+IIyFFQNAyPS1Z4Dv3EYLQlgHwdDlpDxolvB8RCDvTiQZGP3yg9tLMTT2eA9RIN7DbZLbiamhg==",
+      "path": "smartreader/0.11.0",
+      "hashPath": "smartreader.0.11.0.nupkg.sha512"
     }
   }
 }

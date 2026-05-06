@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net10.0": {
+      "AngleSharp/1.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/AngleSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/AngleSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "CodeHollow.FeedReader/1.2.6": {
         "type": "package",
         "compile": {
@@ -57,10 +70,49 @@
             "related": ".xml"
           }
         }
+      },
+      "SmartReader/0.11.0": {
+        "type": "package",
+        "dependencies": {
+          "AngleSharp": "1.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/SmartReader.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/SmartReader.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "AngleSharp/1.4.0": {
+      "sha512": "6ph8mpaQx0KL0COYRt0kI8MB9gSp1PtKijKMhJU//+aVFgKAJLKDesG/+26JSaVCOrHNgPf12wpfoyRcMYOeXg==",
+      "type": "package",
+      "path": "anglesharp/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "anglesharp.1.4.0.nupkg.sha512",
+        "anglesharp.nuspec",
+        "lib/net10.0/AngleSharp.dll",
+        "lib/net10.0/AngleSharp.xml",
+        "lib/net462/AngleSharp.dll",
+        "lib/net462/AngleSharp.xml",
+        "lib/net472/AngleSharp.dll",
+        "lib/net472/AngleSharp.xml",
+        "lib/net8.0/AngleSharp.dll",
+        "lib/net8.0/AngleSharp.xml",
+        "lib/netstandard2.0/AngleSharp.dll",
+        "lib/netstandard2.0/AngleSharp.xml",
+        "logo.png"
+      ]
+    },
     "CodeHollow.FeedReader/1.2.6": {
       "sha512": "KpnP1zlX5zk58PUrREYUXC/7gk8ljjS8mkPfmFeuofaJlHJm62990cZdWLiMBuwWhV/HA6NAu9Ck5uM7GOJl0A==",
       "type": "package",
@@ -148,12 +200,30 @@
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
       ]
+    },
+    "SmartReader/0.11.0": {
+      "sha512": "DSn2HErPhhaf+IIyFFQNAyPS1Z4Dv3EYLQlgHwdDlpDxolvB8RCDvTiQZGP3yg9tLMTT2eA9RIN7DbZLbiamhg==",
+      "type": "package",
+      "path": "smartreader/0.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/netstandard2.0/SmartReader.dll",
+        "lib/netstandard2.0/SmartReader.xml",
+        "lib/netstandard2.1/SmartReader.dll",
+        "lib/netstandard2.1/SmartReader.xml",
+        "logo.png",
+        "smartreader.0.11.0.nupkg.sha512",
+        "smartreader.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "CodeHollow.FeedReader >= 1.2.6",
-      "NewsAPI >= 0.7.0"
+      "NewsAPI >= 0.7.0",
+      "SmartReader >= 0.11.0"
     ]
   },
   "packageFolders": {
@@ -217,6 +287,10 @@
           "NewsAPI": {
             "target": "Package",
             "version": "[0.7.0, )"
+          },
+          "SmartReader": {
+            "target": "Package",
+            "version": "[0.11.0, )"
           }
         },
         "imports": [

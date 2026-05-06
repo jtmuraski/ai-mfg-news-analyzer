@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "vvUPZQ1S/jI=",
+  "dgSpecHash": "0/zIckQM2OM=",
   "success": true,
   "projectFilePath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\johnt\\.nuget\\packages\\anglesharp\\1.4.0\\anglesharp.1.4.0.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\codehollow.feedreader\\1.2.6\\codehollow.feedreader.1.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\newsapi\\0.7.0\\newsapi.0.7.0.nupkg.sha512",
-    "C:\\Users\\johnt\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512"
+    "C:\\Users\\johnt\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\smartreader\\0.11.0\\smartreader.0.11.0.nupkg.sha512"
   ],
   "logs": [
     {
