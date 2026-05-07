@@ -1,5 +1,6 @@
 ﻿using CodeHollow.FeedReader;
 using SmartReader;
+using Anthropic;
 using System.Text.Json;
 using System.IO;
 using System.Text.Json.Serialization;
@@ -70,6 +71,8 @@ foreach (KeyValuePair<string, string> link in rssLinks)
                 article.RawText = readArticle.TextContent;
                 foundArticles.Add(article);
                 newArticlesFound++;
+
+                article.PerformAiAnalysis().Wait();
             }
             else if(readArticle.IsReadable && !readArticle.Completed)
             {

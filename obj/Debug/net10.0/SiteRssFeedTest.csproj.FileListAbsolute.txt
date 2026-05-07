@@ -42,3 +42,5 @@ C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\refint\SiteRssFeedTest.dl
 C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.pdb
 C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\SiteRssFeedTest.genruntimeconfig.cache
 C:\Github Repos\ai-mfg-news-analyzer\obj\Debug\net10.0\ref\SiteRssFeedTest.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\Anthropic.dll
+C:\Github Repos\ai-mfg-news-analyzer\bin\Debug\net10.0\Microsoft.Extensions.AI.Abstractions.dll

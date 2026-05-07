@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "SiteRssFeedTest/1.0.0": {
         "dependencies": {
+          "Anthropic": "12.20.0",
           "CodeHollow.FeedReader": "1.2.6",
           "NewsAPI": "0.7.0",
           "SmartReader": "0.11.0"
@@ -24,11 +25,30 @@
           }
         }
       },
+      "Anthropic/12.20.0": {
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.5.1"
+        },
+        "runtime": {
+          "lib/net9.0/Anthropic.dll": {
+            "assemblyVersion": "12.20.0.0",
+            "fileVersion": "12.20.0.0"
+          }
+        }
+      },
       "CodeHollow.FeedReader/1.2.6": {
         "runtime": {
           "lib/netcoreapp2.1/CodeHollow.FeedReader.dll": {
             "assemblyVersion": "1.2.6.0",
             "fileVersion": "1.2.6.0"
+          }
+        }
+      },
+      "Microsoft.Extensions.AI.Abstractions/10.5.1": {
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.AI.Abstractions.dll": {
+            "assemblyVersion": "10.5.0.0",
+            "fileVersion": "10.500.126.25103"
           }
         }
       },
@@ -77,12 +97,26 @@
       "path": "anglesharp/1.4.0",
       "hashPath": "anglesharp.1.4.0.nupkg.sha512"
     },
+    "Anthropic/12.20.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+lXJaJfMoDVTS/mWbuNE1NuR1T+led5bNl2HLLR4f9vpn4/eg2ewBceJtZjVb1FNs9oak65gstnBPIkrZpy9Gw==",
+      "path": "anthropic/12.20.0",
+      "hashPath": "anthropic.12.20.0.nupkg.sha512"
+    },
     "CodeHollow.FeedReader/1.2.6": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-KpnP1zlX5zk58PUrREYUXC/7gk8ljjS8mkPfmFeuofaJlHJm62990cZdWLiMBuwWhV/HA6NAu9Ck5uM7GOJl0A==",
       "path": "codehollow.feedreader/1.2.6",
       "hashPath": "codehollow.feedreader.1.2.6.nupkg.sha512"
+    },
+    "Microsoft.Extensions.AI.Abstractions/10.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nB0l3IlsVbNeUxsE7nZNb9GY8rP1OSeqpj0pseORPejt474HNKEauTWTLdSJPkSvPlRMxowZNMo6nyp7APAiSg==",
+      "path": "microsoft.extensions.ai.abstractions/10.5.1",
+      "hashPath": "microsoft.extensions.ai.abstractions.10.5.1.nupkg.sha512"
     },
     "NewsAPI/0.7.0": {
       "type": "package",

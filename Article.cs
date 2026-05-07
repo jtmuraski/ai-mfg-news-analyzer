@@ -1,6 +1,10 @@
 using Anthropic;
 using Anthropic.Models.Messages;
 using System.IO;
+using System.Net.Mime;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 public class Article
 {
@@ -16,26 +20,34 @@ public class Article
 
     // AI Analysis Results
     public bool AiAnalysisCompleted { get; set; } = false;
-    public AiAnalysis? AiAnalysis { get; set; }
+    public AiAnalysis? AiAnalysisResults { get; set; }
 
     // Method to perform AI analysis on the article
-    public void PerformAiAnalysis(AnthropicClient anthropicClient)
+    public async Task PerformAiAnalysis()
     {
-        FileStream fileStream = new FileStream("systemprompt.txt", FileMode.Open, FileAccess.Read);
+        FileStream fileStream = new FileStream("C:\\Github Repos\\ai-mfg-news-analyzer\\systemprompt.txt", FileMode.Open, FileAccess.Read);
         string systemPrompt = new StreamReader(fileStream).ReadToEnd();
         fileStream.Close();
 
         AnthropicClient client = new AnthropicClient();
 
-        MessageCreateParams parameters = new MessageCreateParams
+        MessageCreateParams parameters = new()
         {
             Model = "claude-haiku-4-5",
-            MaxTokens = 5000
+            MaxTokens = 5000,
+            System = systemPrompt,
+            Messages = new List<MessageParam>()
+            {
+                new MessageParam() {Role = Role.User, Content = RawText}
+            }
         };
 
-        parameters.Messages.Add(new)
-
-
+        var message = await client.Messages.Create(parameters);
+        if(message is not null)
+        {
+            AiAnalysisCompleted = true;
+            Console.WriteLine(message.ToString());
+        }
     }
 
 }

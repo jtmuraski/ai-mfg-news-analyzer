@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SiteRssFeedTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ANTHROPIC_API_KEY": ""
+      }
+    }
+  }
+}
