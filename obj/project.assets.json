@@ -15,6 +15,22 @@
           }
         }
       },
+      "Anthropic/12.20.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.5.1"
+        },
+        "compile": {
+          "lib/net9.0/Anthropic.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Anthropic.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "CodeHollow.FeedReader/1.2.6": {
         "type": "package",
         "compile": {
@@ -24,6 +40,19 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/CodeHollow.FeedReader.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.AI.Abstractions/10.5.1": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.AI.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.AI.Abstractions.dll": {
             "related": ".xml"
           }
         }
@@ -113,6 +142,25 @@
         "logo.png"
       ]
     },
+    "Anthropic/12.20.0": {
+      "sha512": "+lXJaJfMoDVTS/mWbuNE1NuR1T+led5bNl2HLLR4f9vpn4/eg2ewBceJtZjVb1FNs9oak65gstnBPIkrZpy9Gw==",
+      "type": "package",
+      "path": "anthropic/12.20.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "anthropic.12.20.0.nupkg.sha512",
+        "anthropic.nuspec",
+        "lib/net8.0/Anthropic.dll",
+        "lib/net8.0/Anthropic.xml",
+        "lib/net9.0/Anthropic.dll",
+        "lib/net9.0/Anthropic.xml",
+        "lib/netstandard2.0/Anthropic.dll",
+        "lib/netstandard2.0/Anthropic.xml",
+        "logo.png"
+      ]
+    },
     "CodeHollow.FeedReader/1.2.6": {
       "sha512": "KpnP1zlX5zk58PUrREYUXC/7gk8ljjS8mkPfmFeuofaJlHJm62990cZdWLiMBuwWhV/HA6NAu9Ck5uM7GOJl0A==",
       "type": "package",
@@ -130,6 +178,29 @@
         "lib/netcoreapp2.1/CodeHollow.FeedReader.xml",
         "lib/netstandard1.3/CodeHollow.FeedReader.dll",
         "lib/netstandard1.3/CodeHollow.FeedReader.xml"
+      ]
+    },
+    "Microsoft.Extensions.AI.Abstractions/10.5.1": {
+      "sha512": "nB0l3IlsVbNeUxsE7nZNb9GY8rP1OSeqpj0pseORPejt474HNKEauTWTLdSJPkSvPlRMxowZNMo6nyp7APAiSg==",
+      "type": "package",
+      "path": "microsoft.extensions.ai.abstractions/10.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "README.md",
+        "lib/net10.0/Microsoft.Extensions.AI.Abstractions.dll",
+        "lib/net10.0/Microsoft.Extensions.AI.Abstractions.xml",
+        "lib/net462/Microsoft.Extensions.AI.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.AI.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.AI.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.AI.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.AI.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.AI.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.AI.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.AI.Abstractions.xml",
+        "microsoft.extensions.ai.abstractions.10.5.1.nupkg.sha512",
+        "microsoft.extensions.ai.abstractions.nuspec"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -221,6 +292,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "Anthropic >= 12.20.0",
       "CodeHollow.FeedReader >= 1.2.6",
       "NewsAPI >= 0.7.0",
       "SmartReader >= 0.11.0"
@@ -228,19 +300,21 @@
   },
   "packageFolders": {
     "C:\\Users\\johnt\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
+      "projectUniqueName": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
       "projectName": "SiteRssFeedTest",
-      "projectPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
+      "projectPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\SiteRssFeedTest.csproj",
       "packagesPath": "C:\\Users\\johnt\\.nuget\\packages\\",
-      "outputPath": "C:\\Github Repos\\ai-mfg-news-analyzer\\obj\\",
+      "outputPath": "C:\\Projects\\GitHubRepos\\manufaturing-news-analysis\\SiteRssFeedTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\johnt\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -252,7 +326,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Projects\\Libraries": {},
+        "C:\\Projects\\ReleaseBuilds\\FortressLogger": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -277,6 +352,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "Anthropic": {
+            "target": "Package",
+            "version": "[12.20.0, )"
+          },
           "CodeHollow.FeedReader": {
             "target": "Package",
             "version": "[1.2.6, )"
@@ -306,7 +385,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
