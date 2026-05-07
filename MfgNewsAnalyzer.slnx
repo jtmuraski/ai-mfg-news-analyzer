@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="RetreiveMfgNewsArticles/RetreiveMfgNewsArticles.csproj" Id="2808a32b-0c62-4ca7-b15f-17045b588166" />
   <Project Path="SiteRssFeedTest.csproj" />
 </Solution>

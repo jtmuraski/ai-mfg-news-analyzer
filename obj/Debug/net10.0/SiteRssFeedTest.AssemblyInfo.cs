@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2f96d70ac4fcbf7c66602f2b50879deca68dbf4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb0a9acd41fcc0fcf5b952a0d5a4ac49bc0530b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteRssFeedTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
