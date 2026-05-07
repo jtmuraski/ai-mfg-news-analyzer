@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AdfqD1IT19E=",
+  "dgSpecHash": "rIQc5GZ0Ads=",
   "success": true,
   "projectFilePath": "C:\\Github Repos\\ai-mfg-news-analyzer\\SiteRssFeedTest.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,15 @@
     "C:\\Users\\johnt\\.nuget\\packages\\anthropic\\12.20.0\\anthropic.12.20.0.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\codehollow.feedreader\\1.2.6\\codehollow.feedreader.1.2.6.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\10.5.1\\microsoft.extensions.ai.abstractions.10.5.1.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.7\\microsoft.extensions.configuration.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.7\\microsoft.extensions.configuration.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\10.0.7\\microsoft.extensions.configuration.fileextensions.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.configuration.json\\10.0.7\\microsoft.extensions.configuration.json.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.configuration.usersecrets\\10.0.7\\microsoft.extensions.configuration.usersecrets.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.7\\microsoft.extensions.fileproviders.abstractions.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\10.0.7\\microsoft.extensions.fileproviders.physical.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\10.0.7\\microsoft.extensions.filesystemglobbing.10.0.7.nupkg.sha512",
+    "C:\\Users\\johnt\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.7\\microsoft.extensions.primitives.10.0.7.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\johnt\\.nuget\\packages\\newsapi\\0.7.0\\newsapi.0.7.0.nupkg.sha512",

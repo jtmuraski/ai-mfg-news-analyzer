@@ -1,9 +1,11 @@
-﻿using CodeHollow.FeedReader;
+﻿using Anthropic;
+using CodeHollow.FeedReader;
+using Microsoft.Extensions.Configuration;
 using SmartReader;
-using Anthropic;
-using System.Text.Json;
 using System.IO;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+
 
 // string newsApiKey = "ce88b43e298d430cbd7bda272abbc07a";
 
@@ -72,7 +74,7 @@ foreach (KeyValuePair<string, string> link in rssLinks)
                 foundArticles.Add(article);
                 newArticlesFound++;
 
-                article.PerformAiAnalysis().Wait();
+                await article.PerformAiAnalysis();
             }
             else if(readArticle.IsReadable && !readArticle.Completed)
             {
