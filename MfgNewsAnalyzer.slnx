@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MfgNewsAnalyzer.Core/MfgNewsAnalyzer.Core.csproj" />
+    <Project Path="src/MfgNewsAnalyzer.Functions/MfgNewsAnalyzer.Functions.csproj" />
+  </Folder>
+</Solution>
