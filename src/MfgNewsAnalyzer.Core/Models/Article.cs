@@ -34,7 +34,7 @@ public record Article
     [JsonPropertyName("rawText")]
     public string? RawText { get; init; }
 
-    // ---AI Analysis Properties--
+    // ---AI Analysis Properties---
     [JsonPropertyName("aiAnalysisResults")]
     public AiAnalysis? AiAnalysisResults { get; init; }
 }
