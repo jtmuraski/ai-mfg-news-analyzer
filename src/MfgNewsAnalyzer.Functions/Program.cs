@@ -17,5 +17,6 @@ builder.Services.AddOptions<RssFeedReaderOptions>()
     .BindConfiguration(RssFeedReaderOptions.SectionName);
 
 builder.Services.AddTransient<IRssFeedReader, RssFeedReader>();
+builder.Services.AddTransient<IArticleContentExtractor, ArticleContentExtractor>();
 
 builder.Build().Run();

@@ -1,2 +1,5 @@
 ### Run the RSS reader test
-GET http://localhost:7071/api/TestRssReader
+GET http://localhost:7166/api/TestRssReader
+
+### Run the Smart Reader test
+GET http://localhost:7166/api/TestSmartReader

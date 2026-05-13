@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeHollow.FeedReader" Version="1.2.6" />
-    <PackageReference Include="SmartReader" Version="0.11.0" />
   </ItemGroup>
 
 </Project>

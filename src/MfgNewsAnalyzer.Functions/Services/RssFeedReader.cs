@@ -20,9 +20,9 @@ namespace MfgNewsAnalyzer.Functions.Services
         /// <summary>
         /// Read an RSS feed from the specified URL. If successfully read, parse the feed into usable data.
         /// </summary>
-        /// <param name="url"></param>
-        /// <param name="publisher"></param>
-        /// <param name="canellationToken"></param>
+        /// <param name="url">Url of the RSS Feed</param>
+        /// <param name="publisher">The name of the publication that publishes and manages the RSS feed</param>
+        /// <param name="cancellationToken">Token to monitor for cancellation requests</param>
         /// <returns></returns>
         public async Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken cancellationToken)
         {
