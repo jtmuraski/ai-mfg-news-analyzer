@@ -3,16 +3,15 @@ using MfgNewsAnalyzer.Core.Models;
 using CodeHollow.FeedReader;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Diagnostics.Eventing.Reader;
 
 namespace MfgNewsAnalyzer.Functions.Services
 {
     public class RssFeedReader : IRssFeedReader
     {
-        private readonly RssFeedReaderOptions _options;
+        private readonly IOptions< RssFeedReaderOptions> _options;
         private readonly ILogger<RssFeedReader> _logger;
 
-        public RssFeedReader(RssFeedReaderOptions options, ILogger<RssFeedReader> logger)
+        public RssFeedReader(IOptions<RssFeedReaderOptions> options, ILogger<RssFeedReader> logger)
         {
             _options = options;
             _logger = logger;
@@ -25,11 +24,11 @@ namespace MfgNewsAnalyzer.Functions.Services
         /// <param name="publisher"></param>
         /// <param name="canellationToken"></param>
         /// <returns></returns>
-        public async Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken canellationToken)
+        public async Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Reading RSS feed from {Url} for publisher {Publisher}", url, publisher);
 
-            var feed = await FeedReader.ReadAsync(url, canellationToken);
+            var feed = await FeedReader.ReadAsync(url, cancellationToken);
 
             List<Article> articles = new List<Article>();
             int skippedItems = 0;
@@ -58,7 +57,7 @@ namespace MfgNewsAnalyzer.Functions.Services
                 });
             }
 
-            _logger.LogInformation("Finsihed reading feed from {Publisher}. Artciles Found {ArticlesFound} and skipped {SkippedItems} items.", articles.Count, skippedItems);
+            _logger.LogInformation("Finished reading feed from {Publisher}. Articles Found {ArticlesFound} and skipped {SkippedItems} items.", publisher, articles.Count, skippedItems);
             return articles;
         }
     }

@@ -1,0 +1,2 @@
+### Run the RSS reader test
+GET http://localhost:7071/api/TestRssReader
