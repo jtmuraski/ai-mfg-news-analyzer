@@ -3,3 +3,8 @@ GET http://localhost:7166/api/TestRssReader
 
 ### Run the Smart Reader test
 GET http://localhost:7166/api/TestSmartReader
+
+### Run the Key Vault test
+GET http://localhost:7166/api/TestKeyVault
+
+1 
