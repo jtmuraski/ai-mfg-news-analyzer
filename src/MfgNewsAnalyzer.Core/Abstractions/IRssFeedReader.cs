@@ -9,6 +9,6 @@ namespace MfgNewsAnalyzer.Core.Abstractions
 {
     public interface IRssFeedReader
     {
-        Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken canellationToken);
+        Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken canellationToken = default);
     }
 }

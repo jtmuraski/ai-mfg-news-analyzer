@@ -9,8 +9,8 @@ namespace MfgNewsAnalyzer.Core.Abstractions
 {
     public interface IArticleRepository
     {
-        Task<bool> ExistByUrlAsync(string url, CancellationToken cancellationToken);
+        Task<bool> ExistByUrlAsync(string url, CancellationToken cancellationToken = default);
 
-        Task SaveAsync(Article article, CancellationToken cancellationToken);
+        Task SaveAsync(Article article, CancellationToken cancellationToken = default);
     }
 }

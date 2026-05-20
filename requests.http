@@ -7,4 +7,5 @@ GET http://localhost:7166/api/TestSmartReader
 ### Run the Key Vault test
 GET http://localhost:7166/api/TestKeyVault
 
-1 
+### Test the config
+GET http://localhost:7166/api/TestConfig

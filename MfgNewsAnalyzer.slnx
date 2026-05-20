@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path="FUTURE.md" />
     <File Path="requests.http" />
   </Folder>
   <Folder Name="/src/">
