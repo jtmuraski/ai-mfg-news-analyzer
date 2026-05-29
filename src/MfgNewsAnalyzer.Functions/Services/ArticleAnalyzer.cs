@@ -47,7 +47,7 @@ namespace MfgNewsAnalyzer.Functions.Services
             {
                 _systemPromptPath = Path.Combine(AppContext.BaseDirectory, _options.Value.SystemPromptPath);
                 _systemPrompt = await File.ReadAllTextAsync(_systemPromptPath, cancellationToken);
-                _logger.LogInformation($"System prompt has been loaded from {_systemPromptPath}");
+                _logger.LogInformation("System prompt has been loaded from {SystemPromptPath}", _systemPromptPath);
             }
 
             return;
@@ -65,7 +65,7 @@ namespace MfgNewsAnalyzer.Functions.Services
 
             // Build the JSON schema that the prompt will use to return results.
             // By providing this template, the Claude API will be required to provide its response to meet this schema.
-            // Anthropic structured response doc: 
+            // Anthropic structured response doc: https://platform.claude.com/docs/en/build-with-claude/structured-outputs#c#
             var schemaTemplateObject = new
             {
                 type = "object",
