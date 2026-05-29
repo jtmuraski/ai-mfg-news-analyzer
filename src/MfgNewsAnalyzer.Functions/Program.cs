@@ -33,7 +33,11 @@ builder.Services
 builder.Services.AddOptions<RssFeedReaderOptions>()
     .BindConfiguration(RssFeedReaderOptions.SectionName);
 
+builder.Services.AddOptions<ClaudeAnalyzerOptions>()
+    .BindConfiguration(ClaudeAnalyzerOptions.SectionName);
+
 builder.Services.AddTransient<IRssFeedReader, RssFeedReader>();
 builder.Services.AddTransient<IArticleContentExtractor, ArticleContentExtractor>();
+builder.Services.AddTransient<IArticleAnalyzer, ArticleAnalyzer>();
 
 builder.Build().Run();
