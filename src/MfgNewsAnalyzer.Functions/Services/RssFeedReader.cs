@@ -3,6 +3,7 @@ using MfgNewsAnalyzer.Core.Models;
 using CodeHollow.FeedReader;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using MfgNewsAnalyzer.Functions.Services.Options;
 
 namespace MfgNewsAnalyzer.Functions.Services
 {

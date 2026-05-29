@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Azure.Identity;
 using Microsoft.Extensions.Configuration;
+using MfgNewsAnalyzer.Functions.Services.Options;
+using MfgNewsAnalyzer.Functions.Services.Repositories;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Extensions.Options;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -30,14 +34,29 @@ builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
     .ConfigureFunctionsApplicationInsights();
 
+// Add Service Options
 builder.Services.AddOptions<RssFeedReaderOptions>()
     .BindConfiguration(RssFeedReaderOptions.SectionName);
 
 builder.Services.AddOptions<ClaudeAnalyzerOptions>()
     .BindConfiguration(ClaudeAnalyzerOptions.SectionName);
 
+builder.Services.AddOptions<CosmosOptions>()
+    .BindConfiguration(CosmosOptions.SectionName);
+
+// Add Instances of Services
 builder.Services.AddTransient<IRssFeedReader, RssFeedReader>();
 builder.Services.AddTransient<IArticleContentExtractor, ArticleContentExtractor>();
 builder.Services.AddTransient<IArticleAnalyzer, ArticleAnalyzer>();
+
+// Clients
+builder.Services.AddSingleton<CosmosClient>(sp =>
+{
+    var options = sp.GetRequiredService<IOptions<CosmosOptions>>().Value;
+    return new CosmosClient(options.EndpointUri, options.Key);
+});
+
+// Repositories
+builder.Services.AddSingleton<IArticleRepository, CosmosArticleRepository>();
 
 builder.Build().Run();

@@ -10,6 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using Anthropic.Models.Beta.Messages;
 using Anthropic.Models.Messages;
+using MfgNewsAnalyzer.Functions.Services.Options;
 
 namespace MfgNewsAnalyzer.Functions.Services
 {

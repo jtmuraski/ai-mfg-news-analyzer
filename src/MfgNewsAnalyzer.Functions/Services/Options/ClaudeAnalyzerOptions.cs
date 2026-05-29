@@ -1,4 +1,4 @@
-﻿namespace MfgNewsAnalyzer.Functions.Services;
+﻿namespace MfgNewsAnalyzer.Functions.Services.Options;
 
 public record ClaudeAnalyzerOptions
 {
