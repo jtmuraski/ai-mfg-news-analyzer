@@ -43,7 +43,7 @@ namespace MfgNewsAnalyzer.Functions.Services
         /// <returns></returns>
         private async Task GetSystemPromptAsync (CancellationToken cancellationToken)
         {
-            if (string.IsNullOrEmpty(_systemPromptPath))
+            if (string.IsNullOrEmpty(_systemPrompt))
             {
                 _systemPromptPath = Path.Combine(AppContext.BaseDirectory, _options.Value.SystemPromptPath);
                 _systemPrompt = await File.ReadAllTextAsync(_systemPromptPath, cancellationToken);
@@ -55,7 +55,7 @@ namespace MfgNewsAnalyzer.Functions.Services
         
         public async Task<AiAnalysis> AnalyzeAsync(string rawText, CancellationToken cancellationToken = default)
         {
-            GetSystemPromptAsync(cancellationToken).Wait(cancellationToken);
+            await GetSystemPromptAsync(cancellationToken);
 
             if(_systemPrompt == null)
             {
@@ -63,7 +63,9 @@ namespace MfgNewsAnalyzer.Functions.Services
                 throw new NullSystemPromptException($"The system prompt at {_systemPromptPath} is empty.");
             }
 
-            // Build the JSON schema that the prompt will use to return results
+            // Build the JSON schema that the prompt will use to return results.
+            // By providing this template, the Claude API will be required to provide its response to meet this schema.
+            // Anthropic structured response doc: 
             var schemaTemplateObject = new
             {
                 type = "object",
@@ -72,12 +74,13 @@ namespace MfgNewsAnalyzer.Functions.Services
                     claudeSummary = new { type = "string" },
                     tags = new { type = "array", items = new { type = "string" } },
                     recommendation = new { type = "integer", minimum = 1, maximum = 5 },
-                    sentiment = new { type = "string" }
+                    sentiment = new { type = "integer" }
                 },
                 required = new[] { "claudeSummary", "tags", "recommendation", "sentiment" },
                 additionalProperties = false
             };
 
+            // Convert the schema into a dictionary of JsonElements, which is the format required by the Anthropic .NET SDK for schema-based output formatting.
             var schemaTemplateDict = new Dictionary<string, JsonElement>()
             {
                 ["type"] = JsonSerializer.SerializeToElement(schemaTemplateObject.type),
@@ -88,8 +91,7 @@ namespace MfgNewsAnalyzer.Functions.Services
 
             Anthropic.Models.Messages.MessageCreateParams parameters = new Anthropic.Models.Messages.MessageCreateParams()
             {
-                Model = "claude-haiku-4-5-20251001",
-                // Reduce MaxTokens to avoid exceeding model limits which often causes BadRequest
+                Model = Model.ClaudeHaiku4_5_20251001,
                 MaxTokens = 2000,
                 System = _systemPrompt,
                 Messages = new List<MessageParam>()
@@ -107,22 +109,31 @@ namespace MfgNewsAnalyzer.Functions.Services
 
             try
             {
-                var response = await _client.Messages.Create(parameters);
+                var response = await _client.Messages.Create(parameters, cancellationToken);
 
-                if (response.Content[0].TryPickText(out var message))
+                if (response.Content[0].TryPickText(out var textBlock))
                 {
-                    var analysis = JsonSerializer.Deserialize<AiAnalysis>(message.Text);
-                    if (analysis == null)
+                    var result = JsonSerializer.Deserialize<Dictionary<string, object>>(textBlock.Text);
+                    if (result != null)
                     {
-                        _logger.LogError("Failed to deserialize the model response into AiAnalysis. Response content: {ResponseContent}", message);
-                        throw new JsonException("Failed to deserialize the model response into AiAnalysis.");
+                        return new AiAnalysis()
+                        {
+                            ClaudeSummary = result["claudeSummary"]?.ToString() ?? string.Empty,
+                            Tags = ((JsonElement)result["tags"]).Deserialize<List<string>>() ?? new List<string>(),
+                            Recommendation = int.TryParse(result["recommendation"]?.ToString(), out int rec) ? rec : 0,
+                            Sentiment = int.TryParse(result["sentiment"]?.ToString(), out int sent) ? sent : 0
+                        };
                     }
-                    return analysis;
+                    else
+                    {
+                        _logger.LogError("Failed to deserialize the response from Claude. Response content: {ResponseContent}", textBlock.Text);
+                        throw new Exception("Failed to deserialize the response from Claude.");
+                    }
                 }
                 else
                 {
-                    _logger.LogError("The model response did not contain text content. Full response: {@Response}", response);
-                    throw new InvalidOperationException("The model response did not contain text content.");
+                    _logger.LogError("Claude API did not return a proper response. Full response: {FullResponse}", JsonSerializer.Serialize(response));
+                    throw new PromptFailureException($"Claude API did not return a proper response. Full response: {JsonSerializer.Serialize(response)}");
                 }
             }
             catch (Anthropic.Exceptions.AnthropicBadRequestException ex)

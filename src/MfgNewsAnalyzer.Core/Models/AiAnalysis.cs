@@ -16,7 +16,7 @@ public record AiAnalysis
     public required int Recommendation { get; init; }
 
     [JsonPropertyName("sentiment")]
-    public required int Semantic { get; init; }
+    public required int Sentiment { get; init; }
 
     [JsonPropertyName("tags")]
     public required IReadOnlyList<string> Tags { get; init; } = new List<string>();
