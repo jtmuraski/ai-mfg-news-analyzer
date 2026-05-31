@@ -19,13 +19,14 @@ public class ArticleContentExtractor : IArticleContentExtractor
     /// </summary>
     /// <param name="url">URL of the article to be read</param>
     /// <returns></returns>
-    public async Task<StrippedArticle> ExtractContent(string url, CancellationToken cancellationToken)
+    public async Task<StrippedArticle> ExtractContentAsync(string url, CancellationToken cancellationToken)
     {
         Reader reader = new SmartReader.Reader(url);
         SmartReader.Article article = await reader.GetArticleAsync();
 
         if (article.IsReadable && article.Completed)
         {
+            _logger.LogInformation("Successfully read the article at {Url}", url);
             StrippedArticle strippedArticle = new StrippedArticle
             {
                 Author = article.Author,
