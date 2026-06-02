@@ -28,7 +28,7 @@ public class OrchestrateArticleReading
     }
 
     [Function("OrchestrateArticleReading")]
-    public async Task Run([TimerTrigger("0 0 12 * * 1")] TimerInfo myTimer)
+    public async Task Run([TimerTrigger("0 0 12 * * 1")] TimerInfo myTimer, CancellationToken cancellationToken)
     {
         _logger.LogInformation("C# Timer trigger function executed at: {executionTime}", DateTime.Now);
         
@@ -42,7 +42,7 @@ public class OrchestrateArticleReading
         Dictionary<string, string> rssLinks = new Dictionary<string, string>()
         {
             // "https://www.industryweek.com/rss"              // XML parsing error
-            {"Plant Engineering", "https://www.plantengineering.com/feed/"},        // This one works just fine
+            {"Plant Engineering", "https://www.plantengineering.com/feed/"},
             {"Manufacturing.Net", "https://www.manufacturing.net/feed" },
             {"Manufacturing Today", "https://manufacturing-today.com/feed/" },
             {"ManufacturingDrive", "https://www.manufacturingdive.com/feeds/news/" },
@@ -53,26 +53,25 @@ public class OrchestrateArticleReading
         List<Article> articlesToSave = new List<Article>();
         foreach(var feedLink in rssLinks)
         {
-            _logger.LogInformation($"Getting feed for {feedLink.Key} from {feedLink.Value}");
+            _logger.LogInformation("Getting feed for {Publisher} from {Url}", feedLink.Key, feedLink.Value);
             var feedResponse = await _feedReader.ReadFeedAsync(feedLink.Value, feedLink.Key);
 
             _logger.LogInformation(feedResponse.Count == 0
-                ? $"No articles found for {feedLink.Key}"
-                : $"Found {feedResponse.Count} articles for {feedLink.Key}");
+                ? "No articles found for {Publisher}" 
+                : "Found {Count} articles for {Publisher}", feedLink.Key, feedResponse.Count);
 
-            List<Article> analyzedArticles = new List<Article>();
             // Verify that the article is not already in the database
             foreach (var article in feedResponse)
             {
-                bool isUnique = await _articleRepository.ExistByUrlAsync(article.Url);
-                if(isUnique)
+                bool doesUrlExist = await _articleRepository.ExistByUrlAsync(article.Url);
+                if(!doesUrlExist)
                 {
-                    _logger.LogInformation($"Article '{article.Title}' is unique and will be added be analyzed.");
-                    StrippedArticle strippedArticle = await _contentExtractor.ExtractContentAsync(article.Url);
+                    _logger.LogInformation("Article '{Title}' is unique and will be added be analyzed.", article.Title);
+                    StrippedArticle strippedArticle = await _contentExtractor.ExtractContentAsync(article.Url, cancellationToken);
                     if (strippedArticle.IsSuccess)
                     {
                         // If the article was successfully read and stripped, run it through the analyzer
-                        AiAnalysis aiAnalysis = await _articleAnalyzer.AnalyzeAsync(strippedArticle.RawText);
+                        AiAnalysis aiAnalysis = await _articleAnalyzer.AnalyzeAsync(strippedArticle.RawText, cancellationToken);
                         if (aiAnalysis != null)
                         {
                             // Combine all the gathered information into a single Article object. This object will be saved to the DB
@@ -83,7 +82,14 @@ public class OrchestrateArticleReading
                             };
                             articlesToSave.Add(analyzedArticle);
                         }
-
+                        else
+                        {
+                            _logger.LogError("Article {Title} at {Url} could not be analyzed. It will not be saved to the database.", article.Title, article.Url);
+                        }
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Article at {Url} could not be read and stripped. It will not be analyzed or saved to the database.", article.Url);
                     }
                 }
             }
@@ -93,7 +99,7 @@ public class OrchestrateArticleReading
         foreach(Article article in articlesToSave)
         {
             await _articleRepository.SaveAsync(article);
-            _logger.LogInformation($"Article '{article.Title}' saved to the database.");
+            _logger.LogInformation("Article '{Title}' saved to the database.", article.Title);
         }
     }
 }

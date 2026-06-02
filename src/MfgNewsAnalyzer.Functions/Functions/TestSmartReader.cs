@@ -42,7 +42,7 @@ public class TestSmartReader
 
             foreach(Article article in articles)
             {
-                StrippedArticle strippedArticle = await _smartReader.ExtractContent(article.Url, cancellationToken);
+                StrippedArticle strippedArticle = await _smartReader.ExtractContentAsync(article.Url, cancellationToken);
                 
                 if(strippedArticle.IsSuccess)
                 {
