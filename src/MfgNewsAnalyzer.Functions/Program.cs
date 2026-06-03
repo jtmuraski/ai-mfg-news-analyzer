@@ -50,10 +50,19 @@ builder.Services.AddTransient<IArticleContentExtractor, ArticleContentExtractor>
 builder.Services.AddTransient<IArticleAnalyzer, ArticleAnalyzer>();
 
 // Clients
+// Set the serializer
+var serializer = new CosmosSerializationOptions
+{
+    PropertyNamingPolicy = CosmosPropertyNamingPolicy.CamelCase
+};
+
 builder.Services.AddSingleton<CosmosClient>(sp =>
 {
     var options = sp.GetRequiredService<IOptions<CosmosOptions>>().Value;
-    return new CosmosClient(options.EndpointUri, options.Key);
+    return new CosmosClient(options.EndpointUri, credentials, new CosmosClientOptions
+    {
+        SerializerOptions = serializer
+    });
 });
 
 // Repositories

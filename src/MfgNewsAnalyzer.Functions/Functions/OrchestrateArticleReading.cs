@@ -1,4 +1,3 @@
-using System;
 using MfgNewsAnalyzer.Core.Abstractions;
 using MfgNewsAnalyzer.Core.Models;
 using Microsoft.Azure.Functions.Worker;
@@ -42,11 +41,11 @@ public class OrchestrateArticleReading
         Dictionary<string, string> rssLinks = new Dictionary<string, string>()
         {
             // "https://www.industryweek.com/rss"              // XML parsing error
-            {"Plant Engineering", "https://www.plantengineering.com/feed/"},
-            {"Manufacturing.Net", "https://www.manufacturing.net/feed" },
-            {"Manufacturing Today", "https://manufacturing-today.com/feed/" },
-            {"ManufacturingDrive", "https://www.manufacturingdive.com/feeds/news/" },
-            {"Assembly Mag",  "https://www.assemblymag.com/rss/17" }           
+            {"Plant Engineering", "https://www.plantengineering.com/feed/"}
+            //{"Manufacturing.Net", "https://www.manufacturing.net/feed" },
+            //{"Manufacturing Today", "https://manufacturing-today.com/feed/" },
+            //{"ManufacturingDrive", "https://www.manufacturingdive.com/feeds/news/" },
+           // {"Assembly Mag",  "https://www.assemblymag.com/rss/17" }           
         };
 
         // Call the RSS Feed Reader
@@ -54,21 +53,25 @@ public class OrchestrateArticleReading
         foreach(var feedLink in rssLinks)
         {
             _logger.LogInformation("Getting feed for {Publisher} from {Url}", feedLink.Key, feedLink.Value);
-            var feedResponse = await _feedReader.ReadFeedAsync(feedLink.Value, feedLink.Key);
+            var feedResponse = await _feedReader.ReadFeedAsync(feedLink.Value, feedLink.Key, cancellationToken);
 
-            _logger.LogInformation(feedResponse.Count == 0
-                ? "No articles found for {Publisher}" 
-                : "Found {Count} articles for {Publisher}", feedLink.Key, feedResponse.Count);
+            if(feedResponse.Count == 0)
+            {
+                _logger.LogInformation("No articles were found this week for {Publisher}.", feedLink.Key);
+            }
+            else
+            {
+                _logger.LogInformation("Successfully retrieved {Count} articles for {Publisher}.", feedResponse.Count, feedLink.Key);
+            }
 
             // Verify that the article is not already in the database
             foreach (var article in feedResponse)
             {
-                bool doesUrlExist = await _articleRepository.ExistByUrlAsync(article.Url);
-                if(!doesUrlExist)
+                if(!await _articleRepository.ExistByUrlAsync(article.Url, cancellationToken))
                 {
                     _logger.LogInformation("Article '{Title}' is unique and will be added be analyzed.", article.Title);
                     StrippedArticle strippedArticle = await _contentExtractor.ExtractContentAsync(article.Url, cancellationToken);
-                    if (strippedArticle.IsSuccess)
+                    if (strippedArticle.IsSuccess && !string.IsNullOrEmpty(strippedArticle.RawText))
                     {
                         // If the article was successfully read and stripped, run it through the analyzer
                         AiAnalysis aiAnalysis = await _articleAnalyzer.AnalyzeAsync(strippedArticle.RawText, cancellationToken);
@@ -98,7 +101,7 @@ public class OrchestrateArticleReading
         // Save each of the analyzed articles to the database
         foreach(Article article in articlesToSave)
         {
-            await _articleRepository.SaveAsync(article);
+            await _articleRepository.SaveAsync(article, cancellationToken);
             _logger.LogInformation("Article '{Title}' saved to the database.", article.Title);
         }
     }

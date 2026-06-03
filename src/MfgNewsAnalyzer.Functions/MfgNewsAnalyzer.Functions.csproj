@@ -30,4 +30,9 @@
     <ProjectReference Include="..\MfgNewsAnalyzer.Core\MfgNewsAnalyzer.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="systemprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

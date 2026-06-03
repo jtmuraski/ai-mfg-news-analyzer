@@ -11,7 +11,6 @@ namespace MfgNewsAnalyzer.Functions.Services.Options
         public const string SectionName = "Cosmos";
         public required string EndpointUri { get; init; } = string.Empty;
         public required string ContainerId { get; init; } = string.Empty;
-        public required string Key { get; init; } = string.Empty;
         public required string Database { get; init; } = string.Empty;
     }
 }

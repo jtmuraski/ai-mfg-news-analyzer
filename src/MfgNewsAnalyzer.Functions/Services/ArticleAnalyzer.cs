@@ -74,7 +74,7 @@ namespace MfgNewsAnalyzer.Functions.Services
                 {
                     claudeSummary = new { type = "string" },
                     tags = new { type = "array", items = new { type = "string" } },
-                    recommendation = new { type = "integer", minimum = 1, maximum = 5 },
+                    recommendation = new { type = "integer"},
                     sentiment = new { type = "integer" }
                 },
                 required = new[] { "claudeSummary", "tags", "recommendation", "sentiment" },

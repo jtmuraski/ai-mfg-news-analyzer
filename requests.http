@@ -9,3 +9,12 @@ GET http://localhost:7166/api/TestKeyVault
 
 ### Test the config
 GET http://localhost:7166/api/TestConfig
+
+### Test Cosmos connection
+GET http://localhost:7166/api/TestCosmosRepo
+
+### Trigger the orchestrator manually
+POST http://localhost:7166/admin/functions/OrchestrateArticleReading
+Content-Type: application/json
+
+{}
