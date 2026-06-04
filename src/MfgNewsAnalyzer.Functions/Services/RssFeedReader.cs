@@ -4,6 +4,7 @@ using CodeHollow.FeedReader;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MfgNewsAnalyzer.Functions.Services.Options;
+using System.Xml;
 
 namespace MfgNewsAnalyzer.Functions.Services
 {
@@ -28,34 +29,44 @@ namespace MfgNewsAnalyzer.Functions.Services
         public async Task<IReadOnlyList<Article>> ReadFeedAsync(string url, string publisher, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Reading RSS feed from {Url} for publisher {Publisher}", url, publisher);
-
-            var feed = await FeedReader.ReadAsync(url, cancellationToken);
-
             List<Article> articles = new List<Article>();
             int skippedItems = 0;
 
-            foreach (var item in feed.Items)
+            try
             {
-                if (string.IsNullOrEmpty(item.Link))
-                {
-                    string title = string.IsNullOrEmpty(item.Title) ? "No Title" : item.Title;
-                    _logger.LogWarning("Skipping feed item with missing link: {Title}", title);
-                    skippedItems++;
-                    continue;
-                }
-                
+                var feed = await FeedReader.ReadAsync(url, cancellationToken);
 
-                articles.Add(new Article
+                foreach (var item in feed.Items)
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    Publisher = publisher,
-                    Url = item.Link,
-                    PulledDate = DateTime.UtcNow,
-                    Title = item.Title ?? "No Title",
-                    Description = item.Description,
-                    Author = item.Author,
-                    PublishDate = item.PublishingDate
-                });
+                    if (string.IsNullOrEmpty(item.Link))
+                    {
+                        string title = string.IsNullOrEmpty(item.Title) ? "No Title" : item.Title;
+                        _logger.LogWarning("Skipping feed item with missing link: {Title}", title);
+                        skippedItems++;
+                        continue;
+                    }
+
+
+                    articles.Add(new Article
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        Publisher = publisher,
+                        Url = item.Link,
+                        PulledDate = DateTime.UtcNow,
+                        Title = item.Title ?? "No Title",
+                        Description = item.Description,
+                        Author = item.Author,
+                        PublishDate = item.PublishingDate
+                    });
+                }
+            }
+            catch (XmlException ex)
+            {
+                _logger.LogError(ex, "Error parsing feed item: {Publisher}. Skipping this publisher.", publisher);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error processing feed item: {Publisher}. Skipping this publisher.", publisher);
             }
 
             _logger.LogInformation("Finished reading feed from {Publisher}. Articles Found {ArticlesFound} and skipped {SkippedItems} items.", publisher, articles.Count, skippedItems);
