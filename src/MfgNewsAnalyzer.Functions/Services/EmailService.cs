@@ -48,7 +48,7 @@ namespace MfgNewsAnalyzer.Functions.Services
                                         <td>{ToStars(article.AiAnalysisResults.Recommendation)}</td>
                                     </tr>
                                     <tr>
-                                        <td>{article.AiAnalysisResults.ClaudeSummary} </td>
+                                        <td colspan='4'>{article.AiAnalysisResults.ClaudeSummary} </td>
                                     </tr>
                                 </table>
                                 <br>";
