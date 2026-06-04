@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using MfgNewsAnalyzer.Functions.Services.Options;
 using MfgNewsAnalyzer.Functions.Services.Repositories;
 using Microsoft.Azure.Cosmos;
+using Azure.Communication.Email;
 using Microsoft.Extensions.Options;
 
 var builder = FunctionsApplication.CreateBuilder(args);
@@ -44,10 +45,14 @@ builder.Services.AddOptions<ClaudeAnalyzerOptions>()
 builder.Services.AddOptions<CosmosOptions>()
     .BindConfiguration(CosmosOptions.SectionName);
 
+builder.Services.AddOptions<EmailOptions>()
+    .BindConfiguration(EmailOptions.SectionName);
+
 // Add Instances of Services
 builder.Services.AddTransient<IRssFeedReader, RssFeedReader>();
 builder.Services.AddTransient<IArticleContentExtractor, ArticleContentExtractor>();
 builder.Services.AddTransient<IArticleAnalyzer, ArticleAnalyzer>();
+builder.Services.AddTransient<IEmailService, EmailService>();
 
 // Clients
 // Set the serializer
@@ -63,6 +68,12 @@ builder.Services.AddSingleton<CosmosClient>(sp =>
     {
         SerializerOptions = serializer
     });
+});
+
+builder.Services.AddSingleton<EmailClient>(sp =>
+{
+    var options = sp.GetRequiredService<IOptions<EmailOptions>>().Value;
+    return new EmailClient(new Uri(options.AzureEmailServiceEndpoint), credentials);
 });
 
 // Repositories

@@ -1,5 +1,6 @@
 using MfgNewsAnalyzer.Core.Abstractions;
 using MfgNewsAnalyzer.Core.Models;
+using MfgNewsAnalyzer.Functions.Services;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
@@ -12,17 +13,20 @@ public class OrchestrateArticleReading
     private readonly IArticleRepository _articleRepository;
     private readonly IArticleAnalyzer _articleAnalyzer;
     private readonly IArticleContentExtractor _contentExtractor;
+    private readonly IEmailService _emailService;
 
     public OrchestrateArticleReading(ILoggerFactory loggerFactory, 
         IRssFeedReader feedReader, 
         IArticleRepository articleRepository, 
         IArticleAnalyzer articleAnalyzer,
-        IArticleContentExtractor contentExtractor)
+        IArticleContentExtractor contentExtractor,
+        IEmailService emailService)
     {
         _logger = loggerFactory.CreateLogger<OrchestrateArticleReading>();
         _feedReader = feedReader;
         _articleRepository = articleRepository;
         _articleAnalyzer = articleAnalyzer;
+        _emailService = emailService;
         _contentExtractor = contentExtractor;
     }
 
@@ -41,11 +45,11 @@ public class OrchestrateArticleReading
         Dictionary<string, string> rssLinks = new Dictionary<string, string>()
         {
             // "https://www.industryweek.com/rss"              // XML parsing error
-            {"Plant Engineering", "https://www.plantengineering.com/feed/"}
+            {"Plant Engineering", "https://www.plantengineering.com/feed/"},
             //{"Manufacturing.Net", "https://www.manufacturing.net/feed" },
-            //{"Manufacturing Today", "https://manufacturing-today.com/feed/" },
-            //{"ManufacturingDrive", "https://www.manufacturingdive.com/feeds/news/" },
-           // {"Assembly Mag",  "https://www.assemblymag.com/rss/17" }           
+            {"Manufacturing Today", "https://manufacturing-today.com/feed/" },
+            {"ManufacturingDrive", "https://www.manufacturingdive.com/feeds/news/" },
+            {"Assembly Mag",  "https://www.assemblymag.com/rss/17" }           
         };
 
         // Call the RSS Feed Reader
@@ -104,5 +108,8 @@ public class OrchestrateArticleReading
             await _articleRepository.SaveAsync(article, cancellationToken);
             _logger.LogInformation("Article '{Title}' saved to the database.", article.Title);
         }
+
+        // Send the notification email
+        await _emailService.SendEmailAsync(articlesToSave, cancellationToken);
     }
 }
